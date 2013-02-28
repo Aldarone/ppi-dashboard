@@ -513,6 +513,11 @@ body {
     cursor: default;
 }
 
+a { color: #81a2be; }
+a:hover,
+a:visited:hover { color: #b294bb; }
+a:visited { color: #8abeb7; }
+
 .newrow { margin-left: 0; clear: left; }
 
 .parti {

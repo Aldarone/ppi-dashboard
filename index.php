@@ -36,7 +36,7 @@ $i = 0;
         <div class="mw960p center txtcenter wrapper">
             <img class="inbl w25" src="img/PartiPirate.svg" alt="Voile du Parti Pirate">
             <h1 class="main-title">Les Partis Pirates Francophones</h1>
-            <div class="grid3 txtcenter liste-parti">
+            <div class="grid3 mod txtcenter liste-parti">
 <?php foreach ($ppi as $parti ) { ?>
 <?php $newrow = ( $i % 3 == 0 ) ? 'newrow' : '' ; ?>
                 <div class="parti pal <?php echo $newrow.' '.strtolower($parti[0]) ?>">
@@ -49,6 +49,9 @@ $i = 0;
                 </div>
 <?php $i++ ?>
 <?php } ?>
+            </div>
+            <div class="small mts txtcenter">
+                Ce nom de domaine est administr&eacute; par le <a href="https://www.partipirate.org/">Parti Pirate Français</a> et couvert par nos <a href="https://www.partipirate.org/spip.php?article107">mentions légales générales</a>. Les sites internet mentionnés sur cette page sont sous la responsabilités de leurs auteurs respectifs et seuls ceux déclarés au <a href="http://www.pp-international.net/">Parti Pirate International</a> sont reconnus en tant que tel.
             </div>
         </div>
     </div>
