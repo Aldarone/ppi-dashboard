@@ -21,14 +21,23 @@
 
 <?php
 
-$listeppi = fopen('liste_partis.csv', 'r');
+$listeppfr = fopen('liste_partis_fr.csv', 'r');
+$listeppi = fopen('liste_partis_i.csv', 'r');
+
+$ppfr = array();
 $ppi = array();
+
+while ( ($data = fgetcsv($listeppfr, 0, ';')) !== FALSE ) {
+    $ppfr[] = $data;
+}
 
 while ( ($data = fgetcsv($listeppi, 0, ';')) !== FALSE ) {
     $ppi[] = $data;
 }
 
+shuffle($ppfr);
 shuffle($ppi);
+
 $i = 0;
 ?>
 
@@ -37,7 +46,7 @@ $i = 0;
             <img class="inbl w25" src="img/PartiPirate.svg" alt="Voile du Parti Pirate">
             <h1 class="main-title">Les Partis Pirates Francophones</h1>
             <div class="grid3 mod txtcenter liste-parti">
-<?php foreach ($ppi as $parti ) { ?>
+<?php foreach ($ppfr as $parti ) { ?>
 <?php $newrow = ( $i % 3 == 0 ) ? 'newrow' : '' ; ?>
                 <div class="parti pal <?php echo $newrow.' '.strtolower($parti[0]) ?>">
                     <div class="row">
@@ -49,6 +58,22 @@ $i = 0;
                 </div>
 <?php $i++ ?>
 <?php } ?>
+            </div>
+            <h1 class="main-title"> Les autres Partis Pirates internationaux</h1>
+            <div class="grid3 mod txtcenter liste-parti">
+<?php $i = 0; ?>
+<?php foreach ($ppi as $parti ) { ?>
+<?php $newrow = ( $i % 3 == 0 ) ? 'newrow' : '' ; ?>
+                <div class="parti pal <?php echo $newrow.' '.strtolower($parti[0]) ?>">
+                    <div class="row">
+                        <div class="vmiddle">
+                            <a href="<?php echo $parti[1]; ?>"><img class="center" src="<?php echo $parti[2]; ?>" /></a>
+                            <h2><?php echo $parti[0]; ?></h2>
+                        </div>
+                    </div>
+                </div>
+<?php $i++ ?>
+<?php } ?>                
             </div>
             <div class="small mts txtcenter">
                 Ce nom de domaine est administr&eacute; par le <a href="https://www.partipirate.org/">Parti Pirate Français</a> et couvert par nos <a href="https://www.partipirate.org/spip.php?article107">mentions légales générales</a>. Les sites internet mentionnés sur cette page sont sous la responsabilités de leurs auteurs respectifs et seuls ceux déclarés au <a href="http://www.pp-international.net/">Parti Pirate International</a> sont reconnus en tant que tel.
